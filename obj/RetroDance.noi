@@ -1,0 +1,14 @@
+DEF .__.ABS. 0x0
+DEF l__DATA 0x0
+DEF l__CODE 0x28
+DEF s__CODE 0x4000
+DEF s__DATA 0x4028
+DEF _main 0x4000
+DEF main_loop 0x4008
+DEF cpct_setVideoMode_asm 0x400A
+DEF _cpct_disableFirmware 0x4017
+DEF _cpct_removeInterruptHandler 0x4017
+DEF cpct_disableFirmware_asm 0x4017
+DEF cpct_removeInterruptHandler_asm 0x4017
+DEF _cpct_mode_rom_status 0x4027
+LOAD obj/RetroDance.ihx
