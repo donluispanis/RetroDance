@@ -35,6 +35,16 @@
 ;;=========================================
 ;;=========================================
 
+test::
+
+	ld (hl), a
+
+	ld bc, #8  
+
+	ldir
+
+ret 
+
 ;;=============================================
 ;; Main function
 ;; INPUT:		none
@@ -54,6 +64,8 @@ _main::
 	;ld hl, #_sprite_palette
 	;ld de, #16
 	;call cpct_setPalette_asm		;;change the palette
+	ld de, #0xC001
+	ld hl, #0xC000
 
 	;;MAIN lOOP
 	main_loop::
@@ -66,10 +78,21 @@ _main::
 		;;========================================
 		;; UPDATE
 		;;========================================
-		;;
+
+		ld a, #0x44
+		call test
+		ld a, #0x55
+		call test
+
+		ld a, h 
+		cp a, #0
+		jr z, hi
 	
 		;;========================================
 		;; DRAW
 		;;========================================
 
 	jr main_loop 		;; return to main_loop
+
+hi::
+jr hi
