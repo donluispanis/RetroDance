@@ -118,7 +118,267 @@ _main::
 		call cpct_drawSolidBox_asm
 
 		;;========================================
+
+		ld de, #0xC140
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC148
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC150
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC158
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC160
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC168
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC170
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC178
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC180
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC188
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		;;========================================
+
+		ld de, #0xC280
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC288
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC290
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC298
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC2A0
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC2A8
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC2B0
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC2B8
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC2C0
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC2C8
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		;;========================================
+
+		ld de, #0xC3C0
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC3C8
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC3D0
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC3D8
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC3E0
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC3E8
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC3F0
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC3F8
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC400
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC408
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		;;========================================
+
+		ld de, #0xC500
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC508
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC510
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC518
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC520
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC528
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC530
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC538
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC540
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC548
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		;;========================================
+
+		ld de, #0xC640
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC648
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC650
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC658
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC660
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC668
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC670
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC678
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC680
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC688
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		;;========================================
 		;; DRAW
 		;;========================================
 
-	jr main_loop 		;; return to main_loop
+	jp main_loop 		;; return to main_loop
