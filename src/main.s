@@ -29,21 +29,13 @@
 .globl cpct_disableFirmware_asm		;;unique use cpct function
 .globl cpct_setVideoMode_asm		;;unique use cpct function
 
+.globl cpct_drawSolidBox_asm
+
 ;;=========================================
 ;;=========================================
 ;; MAIN
 ;;=========================================
 ;;=========================================
-
-test::
-
-	ld (hl), a
-
-	ld bc, #8  
-
-	ldir
-
-ret 
 
 ;;=============================================
 ;; Main function
@@ -64,8 +56,6 @@ _main::
 	;ld hl, #_sprite_palette
 	;ld de, #16
 	;call cpct_setPalette_asm		;;change the palette
-	ld de, #0xC001
-	ld hl, #0xC000
 
 	;;MAIN lOOP
 	main_loop::
@@ -74,25 +64,61 @@ _main::
 		;; ERASE 
 		;;========================================
 		
-	
 		;;========================================
 		;; UPDATE
 		;;========================================
+		ld de, #0xC000
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
 
-		ld a, #0x44
-		call test
-		ld a, #0x55
-		call test
+		ld de, #0xC008
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
 
-		ld a, h 
-		cp a, #0
-		jr z, hi
-	
+		ld de, #0xC010
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC018
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC020
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC028
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC030
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC038
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC040
+		ld a,  #8
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
+		ld de, #0xC048
+		ld a,  #3
+		ld bc, #0x2008
+		call cpct_drawSolidBox_asm
+
 		;;========================================
 		;; DRAW
 		;;========================================
 
 	jr main_loop 		;; return to main_loop
-
-hi::
-jr hi
