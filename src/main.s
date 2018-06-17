@@ -59,7 +59,7 @@ _main::
 	;ld de, #16
 	;call cpct_setPalette_asm		;;change the palette
 
-	ld de, #0xC000
+	ld de, #0xC2E0
 	ld a,  #8
 	ld bc, #0x2008
 	call cpct_drawSolidBox_asm
@@ -79,14 +79,32 @@ _main::
 		;; UPDATE
 		;;========================================
 		push hl
-		call draw_all_tiles
+		;;call draw_all_tiles
 		pop hl
 
-			   ld   bc, #0xBC0D  ;; [3] 0xBC = Port for selecting CRTC Register, 0x0D = Selecting R13
+		halt 
+		halt 
+		halt 
+		halt 
+		halt
+		halt
+		halt
+		halt
+		
+
+   ld   bc, #0xBC0D  ;; [3] 0xBC = Port for selecting CRTC Register, 0x0D = Selecting R13
    out (c), c        ;; [4] Select the R13 Register (0x0D to port 0xBC)
    inc   b           ;; [1] Change Output port to 0xBD (B = 0xBC + 1 = 0xBD)
    out (c), l        ;; [4] Write Selected Video Memory Offset to R13 (A to port 0xBD)
    
+   ld a, l
+   sla a
+
+   ld   bc, #0xBC05  
+   out (c), c        
+   inc   b           
+   out (c), a        
+
    ld a, (counter)
    cp #0
 
