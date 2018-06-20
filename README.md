@@ -7,4 +7,4 @@ AmstradCPC project for CPCRetroDev2018
 ## Software Design
 [Software Design Document](https://docs.google.com/document/d/1NDWpOGIo43WqzBcKaJw4-zfpQWXxZHh58qHzCMIw-aM/edit?usp=sharing)
 
-![](https://pbs.twimg.com/profile_images/960885589536108544/NNDr6z2e_400x400.jpg)
+<p align="center"><img src ="https://raw.githubusercontent.com/donluispanis/RetroDance/master/logodef.png" /></p>
