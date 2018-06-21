@@ -428,7 +428,7 @@ draw_all_tiles:
 
 	ld de, #0xC030
 	ld a,  #0x30
-	ld bc, #0x2020
+	ld bc, #0xC020
 	call cpct_drawSolidBox_asm
 
 
