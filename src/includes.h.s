@@ -20,5 +20,7 @@
 ;;=========================================
 ;; CPCTELERA PUBLIC FUNCTIONS
 ;;=========================================
-
+.globl cpct_setPalette_asm
+.globl cpct_drawSolidBox_asm
+.globl cpct_getScreenPtr_asm
 	

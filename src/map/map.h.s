@@ -24,3 +24,4 @@
 .globl map_clear
 .globl map_generate
 .globl map_debug
+.globl map_floorFill

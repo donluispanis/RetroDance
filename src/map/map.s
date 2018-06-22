@@ -80,4 +80,136 @@ ret
 ;;=========================================
 map_debug::
 
+    for_dx:
+
+    for_dy:
+
+        ;;half done method
+        ;;things to do
+        ;;read and caculate coordinates from the given locations
+        ;;pop hl, bc and de values
+
+        push hl
+        push bc
+        push de
+        push af
+
+        ld de, #0xC000      ;;screen start
+        sla b
+        sla b               ;;multiply y coordinate by 4
+
+        call cpct_getScreenPtr_asm
+
+        pop  af         ;;a contains the byte value of the current tile
+                        ;;hl contains the direction in which we want to draw
+
+        ;;we should call draw solid box with a value
+        ex   de, hl     ;;put were to draw in de
+        ld   bc, #0x0401;;draw a little square
+
+        cp   #0x00              ;;if tile is 0, paint with color palette 0
+        jr   nz, debug_next
+
+            ld  a, #0x00
+            call cpct_drawSolidBox_asm
+            jr  end_dy
+
+        debug_next:
+
+        cp   #0x01              ;;if tile is 1, paint with color palette 1
+        jr  nz, end_dy
+
+            ld  a, #0xC0
+            call cpct_drawSolidBox_asm
+            jr  end_dy
+
+    end_dy:
+
+        ld  a, b         ;;load height into a
+        cp  #0           ;;check if 0
+        jr  nz, for_fx    ;;if not 0, repeat loop
+
+    end_dx:
+
+ret
+
+;;=========================================
+;; Fills the floor with a chess like pattern
+;; Input: 	HL - Start of the map (memory)
+;;		    BC - Height / Width
+;; DESTROYS: AF, BC, DE, HL
+;; OUTPUT - None
+;;=========================================
+map_floorFill::
+
+    dec c
+    dec c               ;;decrease c in 2 units
+
+    for_fx:
+
+    ;for_fy:
+
+        dec  b           ;;decrease height value
+        push bc          ;;save height / width value
+
+        ld  a, b         ;;load height into a
+        and #0x0001      ;;check if heigth is pair
+        jr  nz, is_not_pair
+
+        ;is_pair:
+
+            ld  a, #0x00    ;;put a 0 in the memory
+            ld  (hl), a
+
+            ld  b, a        ;;put a 0 in b (so bc has only witdh value)
+
+            inc hl          ;go to the next memory value
+
+            ld  a, #0x01    ;;put a 1 in the memory
+            ld  (hl), a
+
+            dec hl          ;;restore hl to its original value
+
+            ld  d, h
+            ld  e, l
+            inc de
+            inc de          ;;copy hl into de and increase it 2 units
+
+            ldir
+
+            jr  end_fy
+
+        is_not_pair:
+
+            ld  a, #0x01    ;;put a 0 in the memory
+            ld  (hl), a
+
+            inc hl          ;go to the next memory value
+
+            ld  a, #0x00    ;;put a 1 in the memory
+            ld  (hl), a
+
+            ld  b, a        ;;put a 0 in b (so bc has only witdh value)
+
+            dec hl          ;;restore hl to its original value
+
+            ld  d, h
+            ld  e, l
+            inc de
+            inc de          ;;copy hl into de and increase it 2 units
+
+            ldir
+
+    end_fy:
+
+        ex  de, hl       ;;put memory value for next row in hl
+
+        pop bc           ;;restore height / witdh value
+
+        ld  a, b         ;;load height into a
+        cp  #0           ;;check if 0
+        jr  nz, for_fx    ;;if not 0, repeat loop
+
+    ;end_fx:
+
 ret

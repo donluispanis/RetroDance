@@ -29,9 +29,6 @@
 .globl cpct_disableFirmware_asm		;;unique use cpct function
 .globl cpct_setVideoMode_asm		;;unique use cpct function
 
-.globl cpct_setPalette_asm
-.globl cpct_drawSolidBox_asm
-
 ;;=========================================
 ;; SPRITE PALETTE
 ;;=========================================
@@ -57,7 +54,8 @@ sprite_palette: .db #0x58
 ;; MAIN
 ;;=========================================
 ;;=========================================
-
+.include "map/map.h.s"
+.include "includes.h.s"
 ;;=============================================
 ;; Main function
 ;; INPUT:		none
@@ -78,6 +76,10 @@ _main::
 	ld de, #16
 	call cpct_setPalette_asm		;;change the palette
 
+	ld hl, #0xC000
+	ld bc, #0x1050
+	call map_floorFill
+
 	;;MAIN lOOP
 	main_loop::
 
@@ -88,8 +90,8 @@ _main::
 		;;========================================
 		;; UPDATE
 		;;========================================
-		call draw_all_tiles
-
+		;call draw_all_tiles
+		
 		;;========================================
 		;; DRAW
 		;;========================================
