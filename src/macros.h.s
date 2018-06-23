@@ -84,3 +84,18 @@
 	ld hl, #0x'color'10
 	call cpct_setPALColour_asm
 .endm
+
+;;====================================================
+;; ARRAYS
+;;====================================================
+.macro make8array name, p0, p1, p2, p3, p4, p5, p6, p7
+	name':
+	.db p0
+	.db p1
+	.db p2
+	.db p3
+	.db p4
+	.db p5
+	.db p6
+	.db p7
+.endm

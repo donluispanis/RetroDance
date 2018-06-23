@@ -55,7 +55,10 @@ sprite_palette: .db #0x58
 ;;=========================================
 ;;=========================================
 .include "map/map.h.s"
+.include "map/tiles.h.s"
 .include "includes.h.s"
+
+.globl cpct_drawSprite_asm
 ;;=============================================
 ;; Main function
 ;; INPUT:		none
@@ -76,9 +79,25 @@ _main::
 	ld de, #16
 	call cpct_setPalette_asm		;;change the palette
 
-	ld hl, #0xC000
-	ld bc, #0x1050
+	ld hl, #0xA000
+	ld bc, #0x2832
 	call map_floorFill
+
+	ld hl, #0xA000
+	ld bc, #0x2832
+	call map_debug
+
+	ld hl, #0xC000
+	call tiles_drawFloor0
+
+	ld hl, #0xC008
+	call tiles_drawFloor0
+
+	ld hl, #0xC140
+	call tiles_drawFloor0
+
+	ld hl, #0xC148
+	call tiles_drawFloor0
 
 	;;MAIN lOOP
 	main_loop::
@@ -91,7 +110,7 @@ _main::
 		;; UPDATE
 		;;========================================
 		;call draw_all_tiles
-		
+
 		;;========================================
 		;; DRAW
 		;;========================================

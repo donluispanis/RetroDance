@@ -80,21 +80,24 @@ ret
 ;;=========================================
 map_debug::
 
+    ld   de, #0x0000        ;;intialize de to 0
+
     for_dx:
 
-    for_dy:
+    ;for_dy:
 
-        ;;half done method
-        ;;things to do
-        ;;read and caculate coordinates from the given locations
-        ;;pop hl, bc and de values
+        ld   a, (hl)
+        inc  hl             ;;load byte value and inc hl
 
         push hl
         push bc
         push de
         push af
 
-        ld de, #0xC000      ;;screen start
+        ld  b, d
+        ld  c, e            ;;copy de into bc
+
+        ld  de, #0xC000     ;;screen start
         sla b
         sla b               ;;multiply y coordinate by 4
 
@@ -125,11 +128,24 @@ map_debug::
 
     end_dy:
 
-        ld  a, b         ;;load height into a
-        cp  #0           ;;check if 0
-        jr  nz, for_fx    ;;if not 0, repeat loop
+        pop de           
+        pop bc           ;;restore current height / witdh value
+        pop hl           ;;restore max height / witdh value
+        inc e            ;;increase witdh
+        ld  a, c         
+        cp  a, e         ;;compare if we continue looping witdh
+        jr  nz, for_dx
 
-    end_dx:
+        ;;if we have to go to a new line
+
+        ld  a, #0
+        ld  e, a         ;;set e to 0
+        inc d            ;;increase height
+        ld  a, b   
+        cp  a, d         ;;compare if we continue looping height
+        jr nz, for_dx
+
+    ;end_dx:
 
 ret
 

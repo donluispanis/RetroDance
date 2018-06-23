@@ -17,12 +17,9 @@
 ;;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ;;-----------------------------LICENSE NOTICE-----------------------------------------------------
 
-.include "macros.h.s"
+;;====================================================
+;; FUNCTIONS FOR DRAWING TILES
+;;====================================================
 
-;;=========================================
-;; CPCTELERA PUBLIC FUNCTIONS
-;;=========================================
-.globl cpct_setPalette_asm
-.globl cpct_drawSolidBox_asm
-.globl cpct_getScreenPtr_asm
-	
+.globl tiles_drawFloor0
+.globl tiles_drawFloor1
