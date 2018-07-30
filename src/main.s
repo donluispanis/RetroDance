@@ -26,8 +26,9 @@
 ;;=========================================
 ;; INCLUDE AREA
 ;;=========================================
-.globl cpct_disableFirmware_asm		;;unique use cpct function
-.globl cpct_setVideoMode_asm		;;unique use cpct function
+.include "map/map.h.s"
+.include "map/tiles.h.s"
+.include "includes.h.s"
 
 ;;=========================================
 ;; SPRITE PALETTE
@@ -54,11 +55,7 @@ sprite_palette: .db #0x58
 ;; MAIN
 ;;=========================================
 ;;=========================================
-.include "map/map.h.s"
-.include "map/tiles.h.s"
-.include "includes.h.s"
 
-.globl cpct_drawSprite_asm
 ;;=============================================
 ;; Main function
 ;; INPUT:		none
