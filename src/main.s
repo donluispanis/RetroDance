@@ -33,7 +33,7 @@
 ;;=========================================
 ;; SPRITE PALETTE
 ;;=========================================
-sprite_palette: .db #0x58	
+sprite_palette: 		.db #0x58	
 				.db #0x44	
 				.db #0x55	
 				.db #0x5c	
@@ -76,25 +76,27 @@ _main::
 	ld de, #16
 	call cpct_setPalette_asm		;;change the palette
 
+	call draw_all_tiles
+
 	ld hl, #0xA000
 	ld bc, #0x2832
 	call map_floorFill
 
 	ld hl, #0xA000
 	ld bc, #0x2832
-	call map_debug
+	;;call map_debug
 
-	ld hl, #0xC000
-	call tiles_drawFloor0
+	;;ld hl, #0xC000
+	;;call tiles_drawFloor0
 
-	ld hl, #0xC008
-	call tiles_drawFloor0
+	;;ld hl, #0xC008
+	;;call tiles_drawFloor0
 
-	ld hl, #0xC140
-	call tiles_drawFloor0
+	;;ld hl, #0xC140
+	;;call tiles_drawFloor0
 
-	ld hl, #0xC148
-	call tiles_drawFloor0
+	;;ld hl, #0xC148
+	;;call tiles_drawFloor0
 
 	;;MAIN lOOP
 	main_loop::
@@ -106,7 +108,6 @@ _main::
 		;;========================================
 		;; UPDATE
 		;;========================================
-		;call draw_all_tiles
 
 		;;========================================
 		;; DRAW
@@ -147,25 +148,20 @@ draw_all_tiles:
 	ld bc, #0x2008
 	call cpct_drawSolidBox_asm
 
-	;ld de, #0xC030
-	;ld a,  #0x00
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC038
-	;ld a,  #0xFF
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC040
-	;ld a,  #0x00
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC048
-	;ld a,  #0xFF
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
+	ld de, #0xC030
+	ld a,  #0x00
+	ld bc, #0x2008
+	call cpct_drawSolidBox_asm
+
+	ld de, #0xC038
+	ld a,  #0xFF
+	ld bc, #0x2008
+	call cpct_drawSolidBox_asm
+
+	ld de, #0xC040
+	ld a,  #0x00
+	ld bc, #0x2008
+	call cpct_drawSolidBox_asm
 
 	;;========================================
 
@@ -199,25 +195,20 @@ draw_all_tiles:
 	ld bc, #0x2008
 	call cpct_drawSolidBox_asm
 
-	;ld de, #0xC170
-	;ld a,  #0xFF
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
+	ld de, #0xC170
+	ld a,  #0xFF
+	ld bc, #0x2008
+	call cpct_drawSolidBox_asm
 
-	;ld de, #0xC178
-	;ld a,  #0x00
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
+	ld de, #0xC178
+	ld a,  #0x00
+	ld bc, #0x2008
+	call cpct_drawSolidBox_asm
 
-	;ld de, #0xC180
-	;ld a,  #0xFF
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-
-	;ld de, #0xC188
-	;ld a,  #0x00
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
+	ld de, #0xC180
+	ld a,  #0xFF
+	ld bc, #0x2008
+	call cpct_drawSolidBox_asm
 
 	;;========================================
 
@@ -251,25 +242,20 @@ draw_all_tiles:
 	ld bc, #0x2008
 	call cpct_drawSolidBox_asm
 
-	;ld de, #0xC2B0
-	;ld a,  #0x00
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC2B8
-	;ld a,  #0xFF
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC2C0
-	;ld a,  #0x00
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC2C8
-	;ld a,  #0xFF
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
+	ld de, #0xC2B0
+	ld a,  #0x00
+	ld bc, #0x2008
+	call cpct_drawSolidBox_asm
+
+	ld de, #0xC2B8
+	ld a,  #0xFF
+	ld bc, #0x2008
+	call cpct_drawSolidBox_asm
+
+	ld de, #0xC2C0
+	ld a,  #0x00
+	ld bc, #0x2008
+	call cpct_drawSolidBox_asm
 
 	;;========================================
 
@@ -303,25 +289,20 @@ draw_all_tiles:
 	ld bc, #0x2008
 	call cpct_drawSolidBox_asm
 
-	;ld de, #0xC3F0
-	;ld a,  #0xFF
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC3F8
-	;ld a,  #0x00
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC400
-	;ld a,  #0xFF
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC408
-	;ld a,  #0x00
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
+	ld de, #0xC3F0
+	ld a,  #0xFF
+	ld bc, #0x2008
+	call cpct_drawSolidBox_asm
+
+	ld de, #0xC3F8
+	ld a,  #0x00
+	ld bc, #0x2008
+	call cpct_drawSolidBox_asm
+
+	ld de, #0xC400
+	ld a,  #0xFF
+	ld bc, #0x2008
+	call cpct_drawSolidBox_asm
 
 	;;========================================
 
@@ -355,102 +336,52 @@ draw_all_tiles:
 	ld bc, #0x2008
 	call cpct_drawSolidBox_asm
 
-	;ld de, #0xC530
-	;ld a,  #0x00
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC538
-	;ld a,  #0xFF
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC540
-	;ld a,  #0x00
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC548
-	;ld a,  #0xFF
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-
-	;;========================================
-
-	ld de, #0xC640
-	ld a,  #0xFF
-	ld bc, #0x2008
-	call cpct_drawSolidBox_asm
-
-	ld de, #0xC648
+	ld de, #0xC530
 	ld a,  #0x00
 	ld bc, #0x2008
 	call cpct_drawSolidBox_asm
 
-	ld de, #0xC650
+	ld de, #0xC538
 	ld a,  #0xFF
 	ld bc, #0x2008
 	call cpct_drawSolidBox_asm
 
-	ld de, #0xC658
+	ld de, #0xC540
 	ld a,  #0x00
 	ld bc, #0x2008
 	call cpct_drawSolidBox_asm
-
-	ld de, #0xC660
-	ld a,  #0xFF
-	ld bc, #0x2008
-	call cpct_drawSolidBox_asm
-
-	ld de, #0xC668
-	ld a,  #0x00
-	ld bc, #0x2008
-	call cpct_drawSolidBox_asm
-
-	;ld de, #0xC670
-	;ld a,  #0xFF
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC678
-	;ld a,  #0x00
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC680
-	;ld a,  #0xFF
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
-	;
-	;ld de, #0xC688
-	;ld a,  #0x00
-	;ld bc, #0x2008
-	;call cpct_drawSolidBox_asm
 
 	;;=======================================
 
 	;; Byte color interlacing: 4 D 3 C 2 B 1 A
-	;; Dark blue : 1		 : 1 1 0 0 0 0 0 0
+	;; Dark blue : 1	 : 1 1 0 0 0 0 0 0
 
-	ld de, #0xC780
-	ld a,  #0xC0
-	ld bc, #0x0828
+	;;=======================================
+
+	;; HUD
+
+	ld de, #0xC648
+	ld a,  #0x30
+	ld bc, #0x2820
 	call cpct_drawSolidBox_asm
 
-	ld de, #0xC7A8
-	ld a,  #0xC0
-	ld bc, #0x0828
+	ld de, #0xC668
+	ld a,  #0x30
+	ld bc, #0x2820
 	call cpct_drawSolidBox_asm
 
 	;;=======================================
 
-	ld de, #0xC030
-	ld a,  #0x30
-	ld bc, #0xC020
+	;;BORDERS
+
+	ld de, #0xC000
+	ld a,  #0xC0
+	ld bc, #0xC808
 	call cpct_drawSolidBox_asm
 
-
-
-
+	ld de, #0xC048
+	ld a,  #0xC0
+	ld bc, #0xC808
+	call cpct_drawSolidBox_asm
 
 ret

@@ -229,3 +229,15 @@ map_floorFill::
     ;end_fx:
 
 ret
+
+;;=========================================
+;; Fills the map with squared rooms
+;; Input:   HL - Start of the map (memory)
+;;          BC - Height / Width
+;;           A - Tile separation
+;; DESTROYS: AF, BC, DE, HL
+;; OUTPUT - None
+;;=========================================
+map_wallsFill::
+
+ret

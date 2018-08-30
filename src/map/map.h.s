@@ -25,3 +25,4 @@
 .globl map_generate
 .globl map_debug
 .globl map_floorFill
+.globl map_wallsFill
